@@ -1,7 +1,9 @@
 package com.dailycodework.cookshare.dto;
 
-import com.dailycodework.cookshare.model.User;
+
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 public class RecipeDto {
@@ -13,5 +15,10 @@ public class RecipeDto {
     private String category;
     private String description;
     private String cuisine;
+    private ImageDto imageDto;
+    private Long likeCount;
+    private double averageRating;
+    private int totalRateCount;
     private UserDto user;
+    private List<ReviewDto> reviewDto;
 }

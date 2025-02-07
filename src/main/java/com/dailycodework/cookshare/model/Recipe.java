@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -41,10 +42,17 @@ public class Recipe {
     private User user;
 
     @OneToMany (mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<Review> review;
+    private List<Review> reviews = new ArrayList<>() ;
 
     @OneToOne(mappedBy = "recipe", cascade = CascadeType.ALL)
     private Image image;
 
+    public double calculateAverageRatings(){
+        return reviews
+                .stream()
+                .mapToInt(Review :: getStars)
+                .average()
+                .orElse(0.0);
+    }
 
 }
