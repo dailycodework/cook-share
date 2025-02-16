@@ -14,11 +14,12 @@ public class RecipeDto {
     private String cookTime;
     private String category;
     private String description;
+    private List<String> ingredients;
     private String cuisine;
     private ImageDto imageDto;
     private Long likeCount;
     private double averageRating;
     private int totalRateCount;
     private UserDto user;
-    private List<ReviewDto> reviewDto;
+    private List<ReviewDto> reviews;
 }

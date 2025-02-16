@@ -105,14 +105,14 @@ public class RecipeService implements IRecipeService {
                 .stream()
                 .map(review -> modelMapper.map(review, ReviewDto.class)).toList();
 
-        double averageReviews = recipe.calculateAverageRatings();
-        int totalRateCount = recipe.getTotalRateCount();
+      //  double averageReviews = recipe.calculateAverageRatings();
+       // int totalRateCount = recipe.getTotalRateCount();
 
-         recipeDto.setTotalRateCount(totalRateCount);
-         recipeDto.setAverageRating(averageReviews);
+         recipeDto.setTotalRateCount(recipe.getTotalRateCount());
+         recipeDto.setAverageRating(recipe.calculateAverageRatings());
 
         recipeDto.setUser(userDto);
-        recipeDto.setReviewDto(reviews);
+        recipeDto.setReviews(reviews);
         return recipeDto;
     }
 }

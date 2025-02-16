@@ -64,7 +64,6 @@ public class ReviewService implements IReviewService {
                     .orElseThrow(() -> new EntityNotFoundException("Recipe not found!"));
             recipe.getReviews().remove(review);
             recipeRepository.save(recipe);
-
             reviewRepository.delete(review);
         }, () -> {
             throw  new EntityNotFoundException("Review not found!");

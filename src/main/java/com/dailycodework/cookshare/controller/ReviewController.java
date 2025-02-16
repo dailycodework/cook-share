@@ -15,6 +15,7 @@ public class ReviewController {
 
     @PostMapping("/recipe/{recipeId}/review")
     public ResponseEntity<Void> rateRecipe(@RequestBody ReviewRequest request, @PathVariable Long recipeId) {
+        System.out.println("The request is: " + request.toString());
         reviewService.addReview(recipeId,request);
         return ResponseEntity.ok().build();
     }
